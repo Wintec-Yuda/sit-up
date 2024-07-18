@@ -1,0 +1,44 @@
+{% include 'layout/header.html' %}
+
+<main>
+    {% if 'user' in session %}
+        <div class="m-3">
+            <h2 class="text-center">Uji Coba Validasi Latihan Sit Up</h2>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div>
+                <img src="{{ url_for('video_feed') }}" class="img-fluid shadow">
+            </div>
+        </div>
+    {% else %}
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>Login</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="{{ url_for('login') }}">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block my-2">Login</button>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{{ url_for('register') }}">Belum punya akun? Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</main>
+
+{% include 'layout/footer.html' %}

@@ -1,0 +1,25 @@
+{% include 'layout/header.html' %}
+
+<main class="container mt-4">
+    <h2 class="text-center">Tabel Progress Hasil Latihan Sit Up Saya</h2>
+    <table class="table table-bordered table-striped border-primary">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Lama Waktu Tes</th>
+                <th scope="col">Jumlah Tes</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for user in records %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ convert_to_hms(user.waktu) }}</td>
+                <td>{{ user.jumlah_situp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+{% include 'layout/footer.html' %}

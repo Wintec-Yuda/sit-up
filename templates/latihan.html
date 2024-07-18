@@ -1,0 +1,55 @@
+{% include 'layout/header.html' %}
+
+<main class="container mt-4">
+    <h1 class="text-primary shadow-sm text-center">Latihan Sit Up</h1>
+    <div class="row shadow-sm">
+        <form class="col-md-6" id="uploadForm" enctype="multipart/form-data" method="post">
+            <div class="mb-3">
+                <h5 class="text-primary mb-2">Upload Video</h5>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="namaUpload" name="nama" placeholder="Masukkan Nama"
+                    required>
+            </div>
+            <div class="row mb-3">
+                <div class="col-9">
+                    <input type="file" class="form-control" name="file" id="file" required>
+                </div>
+                <div class="col-3">
+                    <button type="button" id="uploadButton" class="btn btn-primary w-100">Upload</button>
+                </div>
+            </div>
+        </form>
+        <div class="d-grid col-md-6">
+            <h5 class="text-primary mb-2">Realtime</h5>
+            <form id="realtime">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" id="namaRealtime" placeholder="Masukkan Nama"
+                            name="nama" required>
+                    </div>
+                    <div class="col-md-6  mb-3">
+                        <input type="number" class="form-control" id="waktu" name="waktu"
+                            placeholder="Masukkan Waktu (Detik)" required>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="button" id="realtimeButton" class="btn btn-primary">Mulai Realtime</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div style="width: 50%;" class="m-3">
+            <a id="iframeVideo" class="d-none btn btn-primary p-2" target="iframe_a">Mulai Sekarang</a>
+        </div>
+        <div style="width: 100%; height: 100vh;">
+            <iframe name="iframe_a" id="iframe_a" title="Iframe" class="text-center"
+                style="width: 100%; height: 100%;"></iframe>
+        </div>
+
+    </div>
+</main>
+
+
+{% include 'layout/footer.html' %}
